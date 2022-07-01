@@ -52,6 +52,7 @@ public class Main extends ListenerAdapter {
         for (String s : allowed) {
             if (!event.getMessage().getContentRaw().equalsIgnoreCase(s)) {
                 event.getMessage().delete().queue();
+                return;
             }
         }
     }
@@ -68,6 +69,7 @@ public class Main extends ListenerAdapter {
         for (String s : allowed) {
             if (!event.getMessage().getContentRaw().equalsIgnoreCase(s)) {
                 event.getMessage().delete().queue();
+                return;
             }
         }
     }
