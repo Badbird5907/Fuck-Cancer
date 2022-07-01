@@ -1,0 +1,13 @@
+{
+  "token": "TOKEN",
+  "channels": [
+    "CHANNEL_ID",
+    "ANOTHER_CHANNEL"
+  ],
+  "allowed": [
+    "fuck cancer",
+    "fuck. cancer",
+    "fuck. cancer.",
+    "fuck cancer."
+  ]
+}
