@@ -30,7 +30,7 @@ public class Main extends ListenerAdapter {
             String token = json.get("token").getAsString();
 
             for (JsonElement jsonElement : json.get("allowed").getAsJsonArray()) {
-                allowed.add(jsonElement.getAsString());
+                allowed.add(jsonElement.getAsString().toLowerCase());
             }
             jda = JDABuilder.createDefault(token).build();
             jda.addEventListener(new Main());
@@ -49,12 +49,7 @@ public class Main extends ListenerAdapter {
         if (!channels.contains(event.getChannel().getId())) {
             return;
         }
-        for (String s : allowed) {
-            if (!event.getMessage().getContentRaw().equalsIgnoreCase(s)) {
-                event.getMessage().delete().queue();
-                return;
-            }
-        }
+        if (!allowed.contains(event.getMessage().getContentRaw().toLowerCase())) event.getMessage().delete().queue();
     }
 
     @Override
@@ -66,11 +61,6 @@ public class Main extends ListenerAdapter {
             return;
         }
 
-        for (String s : allowed) {
-            if (!event.getMessage().getContentRaw().equalsIgnoreCase(s)) {
-                event.getMessage().delete().queue();
-                return;
-            }
-        }
+        if (!allowed.contains(event.getMessage().getContentRaw().toLowerCase())) event.getMessage().delete().queue();
     }
 }
